@@ -1,0 +1,199 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.tommyjohn.automation</groupId>
+	<artifactId>Undefined_Collectionpage</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>TJ_CollectionPages</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<main-class>com.tommyjohn.automation.MainClass</main-class>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+		<maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<dependency>
+			<groupId>com.katalon</groupId>
+			<artifactId>utils</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.11.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.11.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.1.2</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/com.github.stephenc.monte/monte-screen-recorder -->
+		<dependency>
+			<groupId>com.github.stephenc.monte</groupId>
+			<artifactId>monte-screen-recorder</artifactId>
+			<version>0.7.7.0</version>
+		</dependency>
+		<!-- Extent Report dependency -->
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm-util</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+
+			<!-- Post-Man plugin -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>ch.fortysix</groupId> -->
+<!-- 				<artifactId>maven-postman-plugin</artifactId> -->
+<!-- 				<version>0.1.6</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>Report Generation</id> -->
+<!-- 						<phase>test</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>send-mail</goal> -->
+<!-- 						</goals> -->
+<!-- 						<inherited>true</inherited> -->
+<!-- 						<configuration> -->
+<!-- 							From Email address -->
+<!-- 							<from>noreplymw@tommyjohnwear.com</from> -->
+<!-- 							Email subject -->
+<!-- 							<subject>Test Automation Report</subject> -->
+<!-- 							Fail the build if the mail doesn't reach -->
+<!-- 							<failonerror>false</failonerror> -->
+<!-- 							Email Body Content -->
+<!-- 							<htmlMessage> -->
+<!--                                     <![CDATA[ -->
+<!--                                     <p>Hello!</p> -->
+<!--                                     <p>Automation Suite Triggered!</p> -->
+<!--                                     <p>Attached html file contains the test result status</p> -->
+<!--                                     <p>Please download and view the report for proper formatting</p>  -->
+<!--                                     ]]> -->
+<!-- 							</htmlMessage> -->
+<!-- 							host -->
+<!-- 							<mailhost>smtp.emailsrvr.com</mailhost> -->
+<!-- 							port of the host -->
+<!-- 							<mailport>587</mailport> -->
+<!-- 							<mailssl>false</mailssl> -->
+<!-- 							<mailAltConfig>false</mailAltConfig> -->
+<!-- 							Email Authentication(Username and Password) -->
+<!-- 							<mailuser>edw_job_alerts@aretove.com</mailuser> -->
+<!-- 							<mailpassword>RedBook2018</mailpassword> -->
+<!-- 							<receivers> -->
+<!-- 								To Email address -->
+<!-- 								<receiver>vijeta@tommyjohnwear.com</receiver> -->
+<!-- 							</receivers> -->
+<!-- 							<fileSets> -->
+<!-- 								<fileSet> -->
+<!-- 									Report directory Path -->
+<!-- 									<directory>${basedir}/target/surefire-reports</directory> -->
+<!-- 									<includes> -->
+<!-- 										Report file name -->
+<!-- 										<include>emailable-report.html</include> -->
+<!-- 									</includes> -->
+<!-- 								</fileSet> -->
+<!-- 							</fileSets> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>                         
